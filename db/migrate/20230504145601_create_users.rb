@@ -7,8 +7,9 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.datetime :updated_at
       t.datetime :created_at
       t.integer :posts_counter
-      t.timestamps
       self.primary_key = 'authorId'
+      t.timestamps
+      
     end
   end
 end
