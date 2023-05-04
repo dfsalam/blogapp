@@ -3,11 +3,8 @@ class CreateUsers < ActiveRecord::Migration[7.0]
     create_table :users do |t|
       t.string :name
       t.string :photo
-      t.text :bio
-      t.datetime :updated_at
-      t.datetime :created_at
-      t.integer :posts_counter
-      self.primary_key = 'authorId'
+      t.text :bio      
+      t.integer :posts_counter      
       t.timestamps
       
     end
