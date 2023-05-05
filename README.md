@@ -41,7 +41,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Video presentation](https://drive.google.com/file/d/1fpKi5678kdljgkF2E-YdDqBEuovNRckl/view?usp=sharing)
+- [Not deployed yet]
   
 
 <p  align="right">(<a  href="#readme-top">back to top</a>)</p>
@@ -54,15 +54,31 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
-- to install Ruby
+- Ruby 3.2.2
 
 ### Setup
 
 Clone this repository to your desired folder:
+```sh
+- git clone git@github.com:dfsalam/blogapp.git
+- cd blogapp
+- code . 
+```
 
-- git clone https://github.com/dfsalam/catalog-of-my-things.git
-- cd catalog-of-my-things
-- code . <!-- If you are using VS Code -->
+### Install
+
+- bundle install
+
+### Usage
+
+To run the project, execute the following commands:
+
+```sh
+  rails db:create
+  rails db:migrate
+  rails server
+```
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
