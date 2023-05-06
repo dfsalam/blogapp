@@ -7,7 +7,7 @@ describe Comment, type: :model do
                                 bio: 'Teacher from Poland.')
       first_post = Post.create(author: second_user, title: 'Hello', text: 'This is my first post')
       expect do
-        Comment.create(post: first_post, author: second_user, text: 'Hi xTom!' )
+        Comment.create(post: first_post, author: second_user, text: 'Hi xTom!')
       end.to change { first_post.reload.comments_counter }.by(1)
     end
   end
