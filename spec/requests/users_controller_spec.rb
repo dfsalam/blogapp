@@ -16,7 +16,7 @@ RSpec.describe 'UsersControllers', type: :request do
       expect(response.status).to eq(200)
     end
     it 'Returns not found' do
-      expect { get "/users/789" }.to raise_error(ActiveRecord::RecordNotFound)
+      expect { get '/users/789' }.to raise_error(ActiveRecord::RecordNotFound)
     end
   end
 end
