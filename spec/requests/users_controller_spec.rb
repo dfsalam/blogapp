@@ -6,8 +6,8 @@ RSpec.describe 'UsersController', type: :request do
       get '/users'
       expect(response.status).to eq(200)
     end
-    it "renders the index template" do
-      get "/users"
+    it 'renders the index template' do
+      get '/users'
       expect(response).to render_template(:index)
     end
   end
@@ -19,7 +19,7 @@ RSpec.describe 'UsersController', type: :request do
       get "/users/#{first_user_id}"
       expect(response.status).to eq(200)
     end
-    it "renders the show template" do
+    it 'renders the show template' do
       get "/users/#{first_user_id}"
       expect(response).to render_template(:show)
     end
