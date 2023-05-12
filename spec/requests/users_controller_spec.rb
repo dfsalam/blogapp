@@ -1,10 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe 'UsersControllers', type: :request do
+RSpec.describe 'UsersController', type: :request do
   describe 'GET /index' do
     it 'Returns http success' do
       get '/users'
       expect(response.status).to eq(200)
+    end
+    it "renders the index template" do
+      get "/users"
+      expect(response).to render_template(:index)
     end
   end
   describe 'GET /show' do
@@ -14,6 +18,10 @@ RSpec.describe 'UsersControllers', type: :request do
     it 'Returns http success' do
       get "/users/#{first_user_id}"
       expect(response.status).to eq(200)
+    end
+    it "renders the show template" do
+      get "/users/#{first_user_id}"
+      expect(response).to render_template(:show)
     end
     it 'Returns not found' do
       expect { get '/users/789' }.to raise_error(ActiveRecord::RecordNotFound)

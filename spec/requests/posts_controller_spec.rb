@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'PostsControllers', type: :request do
+RSpec.describe 'PostsController', type: :request do
   describe 'GET /index' do
     second_user = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Poland.')
     first_post = Post.create(author: second_user, title: 'Hello', text: 'This is my first post')
