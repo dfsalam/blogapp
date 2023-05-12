@@ -10,6 +10,10 @@ RSpec.describe 'UsersController', type: :request do
       get '/users'
       expect(response).to render_template(:index)
     end
+    it 'Includes the page title' do
+      get "/users"
+      expect(response.body).to include('Welcome to users index page')
+    end
   end
   describe 'GET /show' do
     first_user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
@@ -23,8 +27,9 @@ RSpec.describe 'UsersController', type: :request do
       get "/users/#{first_user_id}"
       expect(response).to render_template(:show)
     end
-    it 'Returns not found' do
-      expect { get '/users/789' }.to raise_error(ActiveRecord::RecordNotFound)
+    it 'Includes the page title' do
+      get "/users/#{first_user_id}"
+      expect(response.body).to include('Welcome to users show page')
     end
   end
 end

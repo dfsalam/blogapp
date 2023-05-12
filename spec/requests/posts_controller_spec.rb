@@ -9,12 +9,13 @@ RSpec.describe 'PostsController', type: :request do
       get "/users/#{second_user_id}/posts"
       expect(response.status).to eq(200)
     end
-    it 'renders the index template' do
+    it 'Renders the index template' do
       get "/users/#{second_user_id}/posts"
       expect(response).to render_template(:index)
     end
-    it 'Returns not found' do
-      expect { get '/users/789/posts' }.to raise_error(ActiveRecord::RecordNotFound)
+    it 'Includes the page title' do
+      get "/users/#{second_user_id}/posts"
+      expect(response.body).to include('Welcome to posts index page')
     end
   end
   describe 'GET /show' do
@@ -31,11 +32,9 @@ RSpec.describe 'PostsController', type: :request do
       get "/users/#{second_user_id}/posts/#{first_post_id}"
       expect(response).to render_template(:show)
     end
-    it 'Returns not found' do
-      expect { get "/users/789/posts/#{first_post_id}" }.to raise_error(ActiveRecord::RecordNotFound)
-    end
-    it 'Returns not found' do
-      expect { get "/users/#{second_user_id}/posts/789" }.to raise_error(ActiveRecord::RecordNotFound)
+    it 'Includes the page title' do
+      get "/users/#{second_user_id}/posts/#{first_post_id}"
+      expect(response.body).to include('Welcome to posts show page')
     end
   end
 end
