@@ -1,17 +1,25 @@
-<h2>Welcome to posts show page</h2>
-<section>
-  <div>
-    <h4>Post #1</h4>
-    <div>
-      <h4>Comments: <%= @post.comments_counter%></h4>
-      <h4>Likes: <%= @post.likes_counter%></h4>
-    </div>
+<h1>Welcome to posts show page</h1>
+<section class="post_card column">
+  <div class="post_detail_title">
+    <h3 class="margin">Post #<%= 1 %></h3>
+    <div class="margin comments_likes">
+    <h4>Comments: <%= @post.comments_counter%></h4>
+    <h4>Likes: <%= @post.likes_counter%></h4>
+    </div>    
   </div>
-  <p><%= @post.text%> </p>  
+  <div class="margin"> 
+    <p><%= @post.text%> </p>
+  </div>
+  
 </section>
-<section>  
-  <% @comments.each do |comment| %>
-    <% user = User.find(comment.author_id) %>
-    <h3><%= user.name %>: <%= comment.text%></h3>
-  <% end %>
-</section>
+<section class="post_card comments_card">
+    <% comments = @post.recent_comments %>
+    <% if comments.length == 0 %>
+      <h4>This post doesn't have comments yet.</h4>
+    <% else %>
+      <% comments.each do |comment| %>
+        <% user = User.find(comment.author_id) %>
+        <h3 class="margin"><%= user.name %>: <%= comment.text%></h3>
+      <% end %>
+    <% end %>
+  </section>
