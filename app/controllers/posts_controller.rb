@@ -8,5 +8,6 @@ class PostsController < ApplicationController
     @user = User.find(params[:user_id])
     @posts = @user.all_posts
     @post = Post.find(params[:id])
+    @comments = @post.all_comments
   end
 end
