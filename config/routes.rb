@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   root "users#index"
   
   resources :users, only: [:index, :show] do
-    resources :posts, only: [:index, :show]
+    resources :posts, only: [:index, :show] do
+      resources :likes, only: [:create], shallow: true
+    end
   end
 
   #To show the comment form
@@ -17,6 +19,6 @@ Rails.application.routes.draw do
   #To save the post
   post '/users/:user_id/post/new', to: 'posts#create', as:'create_post'
   #To allow users to like post
-  post '/posts/:id/like', to: 'likes#create', as: 'like_post'
+  # match '/posts/:id/like', to: 'posts#like', via: :post, as: 'like_post'
   
 end

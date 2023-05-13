@@ -6,7 +6,10 @@
     <%= link_to new_comment_path(@current_user, @post.id) do%>
     <h4>Comments: <%= @post.comments_counter%></h4>
     <% end %>
-    <h4>Likes: <%= @post.likes_counter%></h4>
+    
+      <h4>Likes: <%= @post.likes_counter%></h4>
+    
+    <%= button_to 'Like', user_post_likes_path(@current_user, @post.id), method: :post %>
     </div>    
   </div>
   <div class="margin"> 
