@@ -1,36 +1,11 @@
 <h1>Welcome to posts index page</h1>
-<div class="user_card">
-  <section>
-    <img src="<%= @user.photo %>" alt="User image">
-  </section>
-  <section class="name_posts">      
-    <h2 class="user_name"><%= @user.name %></h2>
-    <h3 class="user_posts">Number of posts: <%= @user.posts_counter %></h3>  
-  </section>
-</div>
+<%= render partial: 'users/user_card', locals: { user: @user } %>
 
 <% @posts.each_with_index do |post, index| %>
-  <%= link_to user_post_path(post.author_id, post.id) do %>
-    <section class="post_card column">
-      <div class="margin">
-        <h2>Post #<%= index+1 %></h2>
-        <p><%= post.text%> </p>
-      </div>
-      <div class="margin comments_likes">
-        <h4>Comments: <%= post.comments_counter%></h4>
-        <h4>Likes: <%= post.likes_counter%></h4>
-      </div>
-    </section>
-  <% end %>
+  <%= render partial: 'post', locals: { post: post, index: index } %>
+  
   <section class="post_card comments_card">
-    <% comments = post.recent_comments %>
-    <% if comments.length == 0 %>
-      <h4>This post doesn't have comments yet.</h4>
-    <% else %>
-      <% comments.each do |comment| %>
-        <% user = User.find(comment.author_id) %>
-        <h3 class="margin"><%= user.name %>: <%= comment.text%></h3>
-      <% end %>
-    <% end %>
+    <% recent_comments = post.recent_comments %>
+    <%= render partial: 'comments', locals: { comments: recent_comments } %>
   </section>
 <% end %>
