@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   get '/users/:user_id/posts/:post_id/comment', to: 'comments#new', as: 'new_comment'
   #To save the comment
   post '/users/:user_id/posts/:post_id/comment', to: 'comments#create', as:'user_post_comment'
+  #To show the post form
+  get '/users/:user_id/post/new', to: 'posts#new', as: 'new_post'
+  #To save the post
+  post '/users/:user_id/post/new', to: 'posts#create', as:'create_post'
 
   
 end
