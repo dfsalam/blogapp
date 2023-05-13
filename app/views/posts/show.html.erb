@@ -12,14 +12,13 @@
   </div>
   
 </section>
-<section class="post_card comments_card">
-    <% comments = @post.recent_comments %>
-    <% if comments.length == 0 %>
+<section class="post_card comments_card">    
+    <% if @comments.length == 0 %>
       <h4>This post doesn't have comments yet.</h4>
     <% else %>
-      <% comments.each do |comment| %>
+      <% @comments.each do |comment| %>
         <% user = User.find(comment.author_id) %>
-        <h3 class="margin"><%= user.name %>: <%= comment.text%></h3>
+        <h3 class="margin" ><%= user.name %>: <%= comment.text%></h3>
       <% end %>
     <% end %>
   </section>
