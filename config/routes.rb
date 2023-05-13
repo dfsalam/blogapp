@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get '/users/:user_id/post/new', to: 'posts#new', as: 'new_post'
   #To save the post
   post '/users/:user_id/post/new', to: 'posts#create', as:'create_post'
-
+  #To allow users to like post
+  post '/posts/:id/like', to: 'likes#create', as: 'like_post'
   
 end

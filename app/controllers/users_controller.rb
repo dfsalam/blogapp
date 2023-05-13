@@ -8,5 +8,4 @@ class UsersController < ApplicationController
     @posts = @user.recent_posts
     @current_user = current_user
   end
-  
 end
