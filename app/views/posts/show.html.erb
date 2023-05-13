@@ -3,7 +3,9 @@
   <div class="post_detail_title">
     <h3 class="margin">Post #<%= 1 %></h3>
     <div class="margin comments_likes">
+    <%= link_to new_comment_path(@current_user, @post.id) do%>
     <h4>Comments: <%= @post.comments_counter%></h4>
+    <% end %>
     <h4>Likes: <%= @post.likes_counter%></h4>
     </div>    
   </div>
