@@ -6,7 +6,8 @@
 </section>
 <section> 
   <% @posts.each_with_index do |post, index| %>
-    <section>
+    <%= link_to user_post_path(post.author_id, post.id) do %>
+    <section>      
       <h2>Post #<%= index+1 %></h2>
       <p><%= post.text%> </p>
       <div>
@@ -14,6 +15,7 @@
         <h4>Likes: <%= post.likes_counter%></h4>
       </div>
     </section>
+    <% end %>
     <section>
       <% comments = post.recent_comments %>
       <% comments.each do |comment| %>

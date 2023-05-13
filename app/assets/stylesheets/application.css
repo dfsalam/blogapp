@@ -13,6 +13,14 @@
  *= require_tree .
  *= require_self
  */
- body {
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+
+body {
   border: solid red 1px;
- }
+}
+
+.box {
+  font-family: 'Pangolin', 'Times New Roman', Times, serif;
+  border: 2px solid #000;
+  display: flex;
+}

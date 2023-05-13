@@ -10,12 +10,14 @@
 </section>
 <section> 
   <% @posts.each_with_index do |post, index| %>
-    <h2>Post #<%= index+1 %></h2>
-    <p><%= post.text%> </p>
-    <div>
-      <h4>Comments: <%= post.comments_counter%></h4>
-      <h4>Likes: <%= post.likes_counter%></h4>
-    </div>
+    <%= link_to user_posts_path(post.author_id) do %> 
+      <h2>Post #<%= index+1 %></h2>
+      <p><%= post.text%> </p>
+      <div>
+        <h4>Comments: <%= post.comments_counter%></h4>
+        <h4>Likes: <%= post.likes_counter%></h4>
+      </div>
+    <% end %>
   <% end %>
 </section>
 
