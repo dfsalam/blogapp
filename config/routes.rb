@@ -8,7 +8,10 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :show]
   end
 
+  #To show the comment form
   get '/users/:user_id/posts/:post_id/comment', to: 'comments#new', as: 'new_comment'
+  #To save the comment
+  post '/users/:user_id/posts/:post_id/comment', to: 'comments#create', as:'user_post_comment'
 
   
 end
