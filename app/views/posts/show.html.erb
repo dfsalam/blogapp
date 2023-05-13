@@ -1,1 +1,18 @@
-<h2>Welcome to posts show page</h2>
+<h1>Welcome to posts show page</h1>
+<section class="post_card column">
+  <div class="post_detail_title">
+    <h3 class="margin">Post #<%= 1 %></h3>
+    <div class="margin comments_likes">
+    <h4>Comments: <%= @post.comments_counter%></h4>
+    <h4>Likes: <%= @post.likes_counter%></h4>
+    </div>    
+  </div>
+  <div class="margin"> 
+    <p><%= @post.text%> </p>
+  </div>
+  
+</section>
+<section class="post_card comments_card">
+  <% all_comments = @comments %>
+  <%= render partial: 'comments', locals: { comments: all_comments } %>
+</section>
