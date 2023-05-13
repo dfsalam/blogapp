@@ -85,7 +85,7 @@ button {
 }
 
 .button_box {
-  display: flex;  
+  display: flex;
   justify-content: center;
   margin-bottom: 20px;
 }
