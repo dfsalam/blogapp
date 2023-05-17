@@ -1,8 +1,7 @@
 <% if comments.length == 0 %>
     <h4>This post doesn't have comments yet.</h4>
 <% else %>
-  <% comments.each do |comment| %>
-    <% user = User.find(comment.author_id) %>
-    <h3 class="margin" ><%= user.name %>: <%= comment.text%></h3>
+  <% comments.includes(:author).each do |comment| %>    
+    <h3 class="margin" ><%= comment.author.name %>: <%= comment.text%></h3>
   <% end %>
 <% end %>
