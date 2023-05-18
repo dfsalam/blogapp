@@ -1,7 +1,7 @@
 <h1>Welcome to posts show page</h1>
 <section class="post_card column">
   <div class="post_detail_title">
-    <h3 class="margin">Post #<%= 1 %></h3>
+    <h3 class="margin"><%= @post.title %> by <%= @current_user.name %></h3>
     <div class="margin comments_likes">
     <%= link_to new_comment_path(@current_user, @post.id) do%>
     <h4>Comments: <%= @post.comments_counter%></h4>
