@@ -7,7 +7,7 @@ RSpec.describe 'Users index page', type: :feature do
   let!(:second_post) { Post.create(author: second_user, title: 'Hello', text: 'This is my second post') }
   let!(:third_post) { Post.create(author: second_user, title: 'Hello', text: 'This is my third post') }
   let!(:fourth_post) { Post.create(author: second_user, title: 'Hello', text: 'This is my fourth post') }
-  
+
   scenario 'I can see the username of all other users' do
     visit users_path
     expect(page).to have_content('Tom')

@@ -24,23 +24,23 @@ RSpec.describe 'Users show page', type: :feature do
     Like.create(post: first_post, author: second_user)
   end
   scenario 'I can see the profile picture for each user.' do
-    visit user_posts_path(second_user.id)    
+    visit user_posts_path(second_user.id)
     expect(page).to have_css("img[src*='https://www.joseivanaguilar.com/wp-content/uploads/2021/03/mujer-696x465.jpg']")
   end
 
   scenario 'I can see the username' do
-    visit user_posts_path(second_user.id)    
+    visit user_posts_path(second_user.id)
     expect(page).to have_content('Lilly')
   end
 
   scenario 'I can see the number of posts each user has written.' do
     visit user_posts_path(second_user.id)
-    expect(page).to have_content('Number of posts: 4')    
+    expect(page).to have_content('Number of posts: 4')
   end
 
   scenario 'I can see a post title.' do
     visit user_posts_path(second_user.id)
-    expect(page).to have_content('Hello')    
+    expect(page).to have_content('Hello')
   end
 
   scenario "I can see some of the post's body." do
@@ -48,27 +48,27 @@ RSpec.describe 'Users show page', type: :feature do
     expect(page).to have_content('This is my fourth post')
     expect(page).to have_content('This is my second post')
     expect(page).to have_content('This is my third post')
-    expect(page).to have_content('This is my first post')    
+    expect(page).to have_content('This is my first post')
   end
 
   scenario 'I can see the first comment on a post.' do
     visit user_posts_path(second_user.id)
-    expect(page).to have_content('Hi xxTom!')    
+    expect(page).to have_content('Hi xxTom!')
   end
 
   scenario 'I can see how many comments a post has.' do
     visit user_posts_path(second_user.id)
-    expect(page).to have_content('Comments: 6')    
+    expect(page).to have_content('Comments: 6')
   end
 
   scenario 'I can see how many likes a post has.' do
     visit user_posts_path(second_user.id)
-    expect(page).to have_content('Likes: 7')    
+    expect(page).to have_content('Likes: 7')
   end
 
   scenario 'I can see a section for pagination if there are more posts than fit on the view.' do
     visit user_posts_path(second_user.id)
-    expect(page).to have_content('Pagination')    
+    expect(page).to have_content('Pagination')
   end
 
   scenario "When I click a user's post, it redirects me to that post's show page." do
@@ -77,5 +77,4 @@ RSpec.describe 'Users show page', type: :feature do
     find("a[href='#{href_link}']").click
     expect(current_path).to eq(user_post_path(second_user.id, second_post.id))
   end
-  
 end

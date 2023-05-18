@@ -25,37 +25,35 @@ RSpec.describe 'Users show page', type: :feature do
   end
   scenario 'I can see a post title.' do
     visit user_post_path(second_user.id, first_post.id)
-    expect(page).to have_content('Hello')    
+    expect(page).to have_content('Hello')
   end
 
   scenario 'I can see who wrote the post.' do
     visit user_post_path(second_user.id, first_post.id)
-    expect(page).to have_content(second_user.name)    
+    expect(page).to have_content(second_user.name)
   end
 
   scenario 'I can see how many comments the post has.' do
     visit user_post_path(second_user.id, first_post.id)
-    expect(page).to have_content('Comments: 6')    
+    expect(page).to have_content('Comments: 6')
   end
 
   scenario 'I can see how many likes the post has.' do
     visit user_post_path(second_user.id, first_post.id)
-    expect(page).to have_content('Likes: 7')    
+    expect(page).to have_content('Likes: 7')
   end
 
-  scenario "I can see the post body." do
-    visit user_post_path(second_user.id, first_post.id)    
-    expect(page).to have_content('This is my first post')    
+  scenario 'I can see the post body.' do
+    visit user_post_path(second_user.id, first_post.id)
+    expect(page).to have_content('This is my first post')
   end
 
-  scenario "I can see the username of each commentor and the comment." do
-    visit user_post_path(second_user.id, first_post.id)    
+  scenario 'I can see the username of each commentor and the comment.' do
+    visit user_post_path(second_user.id, first_post.id)
     expect(page).to have_content('Lilly: Hi xxTom!')
     expect(page).to have_content('Lilly: Hi xxxTom!')
     expect(page).to have_content('Lilly: Hi xxxxTom!')
     expect(page).to have_content('Lilly: Hi xxxxxTom!')
     expect(page).to have_content('Tom: Hi xxxxxxTom!')
   end
-  
-  
 end
