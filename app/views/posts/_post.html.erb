@@ -1,7 +1,7 @@
 <%= link_to user_post_path(post.author_id, post.id) do %>
   <section class="post_card column">
     <div class="margin">
-      <h2>Post #<%= index+1 %></h2>
+      <h2><%= post.title %></h2>
       <p><%= post.text %></p>
     </div>
     <div class="margin comments_likes">
