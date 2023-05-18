@@ -7,22 +7,7 @@ RSpec.describe 'Users index page', type: :feature do
   let!(:second_post) { Post.create(author: second_user, title: 'Hello', text: 'This is my second post') }
   let!(:third_post) { Post.create(author: second_user, title: 'Hello', text: 'This is my third post') }
   let!(:fourth_post) { Post.create(author: second_user, title: 'Hello', text: 'This is my fourth post') }
-  before do
-    Comment.create(post: first_post, author: second_user, text: 'Hi xTom!')
-    Comment.create(post: first_post, author: second_user, text: 'Hi xxTom!')
-    Comment.create(post: first_post, author: second_user, text: 'Hi xxxTom!')
-    Comment.create(post: first_post, author: second_user, text: 'Hi xxxxTom!')
-    Comment.create(post: first_post, author: second_user, text: 'Hi xxxxxTom!')
-    Comment.create(post: first_post, author: second_user, text: 'Hi xxxxxxTom!')
-
-    Like.create(post: first_post, author: second_user)
-    Like.create(post: first_post, author: second_user)
-    Like.create(post: first_post, author: second_user)
-    Like.create(post: first_post, author: second_user)
-    Like.create(post: first_post, author: second_user)
-    Like.create(post: first_post, author: second_user)
-    Like.create(post: first_post, author: second_user)
-  end
+  
   scenario 'I can see the username of all other users' do
     visit users_path
     expect(page).to have_content('Tom')
