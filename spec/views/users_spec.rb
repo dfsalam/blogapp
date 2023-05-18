@@ -41,11 +41,17 @@ RSpec.describe 'Users index page', type: :feature do
     expect(page).to have_content('Number of posts: 0')
   end
 
-  scenario 'Clicking on a user redirects to their show page' do
+  scenario 'Clicking on the first user redirects to their show page' do
     visit users_path
-    find("h2.user_name", text: 'Tom').click
-    expect(current_path).to eq(user_path(first_user))
+    href_link = "/users/#{first_user.id}"
+    find("a[href='#{href_link}']").click
+    expect(current_path).to eq(user_path(first_user.id))
   end
 
-
+  scenario 'Clicking on the second user redirects to their show page' do
+    visit users_path
+    href_link = "/users/#{second_user.id}"
+    find("a[href='#{href_link}']").click
+    expect(current_path).to eq(user_path(second_user.id))
+  end
 end
